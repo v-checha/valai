@@ -1,0 +1,36 @@
+{
+  "name": "valai",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "npm run dev --workspaces",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint packages --ext .ts",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf packages/*/dist node_modules",
+    "publish:npm": "./scripts/publish.sh",
+    "prepublish:check": "npm run build && npm test && npm pack --dry-run -w packages/core",
+    "version:patch": "npm version patch -w packages/core",
+    "version:minor": "npm version minor -w packages/core",
+    "version:major": "npm version major -w packages/core"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.6.0",
+    "tsup": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.56.0"
+  }
+}

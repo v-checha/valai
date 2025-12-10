@@ -21,6 +21,7 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 *.lcov
+.claude
 
 # nyc test coverage
 .nyc_output
@@ -124,6 +125,9 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+
+# IDE
+.idea/
 
 # yarn v3
 .pnp.*
